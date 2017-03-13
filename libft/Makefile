@@ -75,6 +75,7 @@ ft_lstadd.c \
 ft_lstiter.c \
 ft_lstmap.c \
 ft_lstdel.c \
+ft_list_push_back.c \
 
 all: $(NAME)
 

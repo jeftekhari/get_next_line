@@ -12,7 +12,6 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <unistd.h>
 # include <stdlib.h>
 
 typedef struct		s_list
@@ -20,6 +19,7 @@ typedef struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
@@ -82,6 +82,7 @@ void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
+void				ft_list_push_back(t_list **begin_list, void *data);
 void				ft_putnbr_fd(int n, int fd);
 
 #endif

@@ -33,6 +33,27 @@ int					helper(char **line, t_list *buffsave)
 	return (0);
 }
 
+void	listfunction(t_list *buffsave, int fd)
+{
+	struct size_t *temp = ft_lstnew(buffsave, fd);
+
+	if (!buffsave->next)
+		buffsave->next = ft_lstnew("", fd);
+	if (buffsave->next)
+	{
+		while (buffsave->content_size != fd && buffsave->content_size)
+		{
+			if (!buffsave->prev)
+				buffsave->prev = ft_lstnew(buffsave, fd);
+			if (!buffsave->next)
+				buffsave->next = ft_lstnew("", fd);
+			buffsave = buffsave->next;
+			buffsave->prev = temp;
+		}
+			
+			
+			
+
 int					get_next_line(const int fd, char **line)
 {
 	static t_list	*buffsave;
@@ -40,6 +61,8 @@ int					get_next_line(const int fd, char **line)
 	int				check;
 	char			*tmp;
 	
+	if (buffsave->content_size != fd && fd != NULL)
+		listfunction(buffsave, fd);
 	if (fd < 0 || BUFF_SIZE <= 0)
 		return (-1);
 	if (buffsave == NULL)
