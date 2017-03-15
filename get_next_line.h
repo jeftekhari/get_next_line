@@ -6,7 +6,7 @@
 /*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 09:37:33 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/03/08 15:08:14 by jeftekha         ###   ########.fr       */
+/*   Updated: 2017/03/14 20:57:47 by jeftekha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-# define BUFF_SIZE 32
+
+# define BUFF_SIZE 15
 
 int		get_next_line(const int fd, char **line);
 

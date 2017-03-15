@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_back.c                                :+:      :+:    :+:   */
+/*   ft_lstaddb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 16:31:02 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/02/09 20:48:55 by sjones           ###   ########.fr       */
+/*   Created: 2017/03/13 17:44:48 by jeftekha          #+#    #+#             */
+/*   Updated: 2017/03/14 13:08:51 by jeftekha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_list_push_back(t_list **begin_list, void *data)
+void	ft_lstaddb(t_list *alst, t_list *new)
 {
-	t_list	*a;
-
-	a = *begin_list;
-	if (*begin_list == '\0')
-		*begin_list = ft_newtet(data);
-	else
+	if (alst != NULL && new != NULL)
 	{
-		while (a->next)
-			a = a->next;
-		a->next = ft_newtet(data);
+		alst->next = new;
+		new->prev = alst;
 	}
 }

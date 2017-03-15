@@ -6,13 +6,14 @@
 /*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 14:38:41 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/03/08 22:54:39 by jeftekha         ###   ########.fr       */
+/*   Updated: 2017/03/14 21:10:39 by jeftekha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct		s_list
 {
@@ -20,11 +21,13 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 	struct s_list	*prev;
+	char			*c;
 }					t_list;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstaddb(t_list *alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -82,7 +85,6 @@ void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
-void				ft_list_push_back(t_list **begin_list, void *data);
 void				ft_putnbr_fd(int n, int fd);
 
 #endif
