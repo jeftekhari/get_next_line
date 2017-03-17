@@ -6,7 +6,7 @@
 /*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 09:36:59 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/03/14 21:49:42 by jeftekha         ###   ########.fr       */
+/*   Updated: 2017/03/16 21:14:00 by jeftekha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		helper(char **line, t_list *buffsave)
 	{
 		*e = '\0';
 		*line = ft_strdup((buffsave->c));
-		buffsave->c = ft_strdup(e + 1);
-	//	ft_memmove((char*)(buffsave->content), &e[1], ft_strlen(&e[1]) + 1);
+		ft_memmove((buffsave->c), &e[1], ft_strlen(&e[1]) + 1);
 		return (1);
 	}
 	if (0 < ft_strlen((buffsave->c)))
@@ -56,7 +55,7 @@ t_list	*listfunction(t_list *buffsave, int fd)
 int		get_next_line(const int fd, char **line)
 {
 	static t_list	*buffsave;
-	char			buf[BUFF_SIZE];
+	char			buf[BUFF_SIZE + 1];
 	int				check;
 	char			*tmp;
 
@@ -66,33 +65,18 @@ int		get_next_line(const int fd, char **line)
 		buffsave = listfunction(buffsave, fd);
 	if (buffsave == NULL)
 		buffsave = ft_lstnew("", fd);
-	while ((check = read(fd, buf, BUFF_SIZE)))
-//	while (!ft_strchr((buffsave->c), '\n'))
+	while (!ft_strchr((buffsave->c), '\n'))
 	{
-//		check = read(fd, buf, BUFF_SIZE);
+		ft_bzero(buf, BUFF_SIZE + 1);
+		check = read(fd, buf, BUFF_SIZE);
 		if (check == 0)
 			break ;
-		if (check < 0)
+		if (check < 0 && !*buf)
 			return (-1);
 		buf[check] = '\0';
 		tmp = ft_strjoin((buffsave->c), buf);
 		ft_strdel(&buffsave->c);
 		buffsave->c = tmp;
 	}
-	return(helper(line, buffsave));
+	return (helper(line, buffsave));
 }
-/*
-int    main(int ac, char **av)
-{
-    int fd;
-    char    *line = NULL;
-   
-    if (ac >= 2)
-    {
-        fd = open(av[1], O_RDONLY);
-        get_next_line(fd, &line);
-        get_next_line(fd, &line);
-    }
-    return (0);
-}
-*/
