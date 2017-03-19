@@ -21,6 +21,7 @@ int		helper(char **line, t_list *buffsave)
 	{
 		*e = '\0';
 		*line = ft_strdup((buffsave->c));
+		ft_strdel(&buffsave>c;
 		ft_memmove((buffsave->c), &e[1], ft_strlen(&e[1]) + 1);
 		return (1);
 	}
@@ -59,7 +60,7 @@ int		get_next_line(const int fd, char **line)
 	int				check;
 	char			*tmp;
 
-	if (line == NULL || fd < 0 || BUFF_SIZE <= 0)
+	if (line == NULL || fd < 0 || BUFF_SIZE <= 0 || (read(fd, 0, 0) == 0))
 		return (-1);
 	if (buffsave && (int)buffsave->content_size != fd && fd)
 		buffsave = listfunction(buffsave, fd);
@@ -73,7 +74,6 @@ int		get_next_line(const int fd, char **line)
 			break ;
 		if (check < 0 && !*buf)
 			return (-1);
-		buf[check] = '\0';
 		tmp = ft_strjoin((buffsave->c), buf);
 		ft_strdel(&buffsave->c);
 		buffsave->c = tmp;
