@@ -6,7 +6,7 @@
 /*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 17:44:48 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/03/14 13:08:51 by jeftekha         ###   ########.fr       */
+/*   Updated: 2017/03/19 23:33:01 by jeftekha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,5 @@
 void	ft_lstaddb(t_list *alst, t_list *new)
 {
 	if (alst != NULL && new != NULL)
-	{
 		alst->next = new;
-		new->prev = alst;
-	}
 }

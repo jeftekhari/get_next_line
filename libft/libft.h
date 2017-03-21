@@ -6,7 +6,7 @@
 /*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 14:38:41 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/03/14 21:10:39 by jeftekha         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:32:15 by jeftekha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ typedef struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-	struct s_list	*prev;
-	char			*c;
 }					t_list;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
@@ -86,5 +84,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+char				*ft_strjoinfree(char *s1, char *s2, int f);
 
 #endif

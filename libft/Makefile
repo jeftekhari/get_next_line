@@ -6,7 +6,7 @@
 #    By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 14:02:00 by jeftekha          #+#    #+#              #
-#    Updated: 2017/03/13 17:48:39 by jeftekha         ###   ########.fr        #
+#    Updated: 2017/03/20 14:31:23 by jeftekha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ ft_lstiter.c \
 ft_lstmap.c \
 ft_lstdel.c \
 ft_lstaddb.c \
+ft_strjoinfree.c \
 
 all: $(NAME)
 
