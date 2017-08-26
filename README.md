@@ -9,3 +9,19 @@ GNL works with multiple file descriptors by using a doubly linked list to save y
 - Understanding of the Buffer
 - Understanding NULL
 - Test Cases
+- Linked Lists
+- Bus Errors/Seg Faults
+
+I had a very clean and elegant "working" version of this project originall. I was so proud of it until I submitted my project to be graded and was failed immediately with a Bus Error. So I added a few test cases and re-submitted. Again I failed. Fast forward 3 more attempts and fails, and I was fed up. I completely re-wrote the function, losing all my elegance by splitting 2 functions into 5. SUCCESS!
+
+This project tested my patience multiple times. The only reason I prevailed is because I stuck with it and relentlessly tested my code.
+
+Here are some pics from the Project!
+
+![alt text](https://github.com/jeftekhari/get_next_line/blob/master/pics/Driver.png "Driver")
+
+This is where the magic starts. GNL pulls a line in from the buffer, after error checking of course, and parses and presents it until the *\n* is found.
+
+![alt text](https://github.com/jeftekhari/get_next_line/blob/master/pics/helper.png "Helper")
+
+![alt text](https://github.com/jeftekhari/get_next_line/blob/master/pics/listfunction.png "List function")
